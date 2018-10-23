@@ -14,8 +14,10 @@ def alarm():
         print("今の時間:")
         print(time_now)
         print("セットタイマー")
-
-        if time_now == set_timer:
+        #****************#
+        # need to change set timer using something technique like flag
+        #****************#
+        if time_now == set_timer: #only check hour
             sound()#再生
 
 #pause method
@@ -43,7 +45,7 @@ def sound():
         pause_time = datetime.time.minute
         time_pause(pause_time)
 
-        
+
 def finding_out():
     while True:
         rmotion = GPIO.input(25)
@@ -52,6 +54,7 @@ def finding_out():
         #in room
         #rmotion = 0, lmotion = 0
 
+        #this is not detecting person who comes inside
         #when someone coming, program finish 
         if (rmotion == 0 and lmotion == 1) or (rmotion == 1 and lmotion == 1):
             finish_program()
